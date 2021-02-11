@@ -1,0 +1,122 @@
+<?php $page = 'edit profile'; ?>
+<?php 
+@session_start();
+if(isset($_SESSION['phone_no']))
+{
+?>
+<?php include("../connection.php");
+@session_start();
+if(isset($_SESSION['phone_no']))
+{		
+$phone_no=mysqli_real_escape_string($con, $_SESSION['phone_no']);
+$query=mysqli_fetch_array(mysqli_query($con, "select * from sv_user_profile where phone_no='$phone_no'"));
+$address=mysqli_real_escape_string($con, $query['address']);	
+}	
+?>
+<?php 
+if(isset($_REQUEST['postal_code']))
+{
+$postal_code=$_REQUEST['postal_code'];
+}
+else{$postal_code="";}
+?>
+<body class="splash-index">
+  <?php include("../header.php") ?> 
+  <section class="teaser main-teaser bg-top">
+    <div class="min-space">
+    </div>
+    <div class="min-space">
+    </div>
+    <div class="min-space">
+    </div>
+    <h1 class="sub-title">Отредактируйте свой аккаунт
+    </h1>
+    <div class="min-space">
+    </div>
+    <div class="min-space">
+    </div>
+  </section>
+  <section class="teaser">
+    <div class="min-space">
+    </div>
+    <form class="form-large" action="javascript:edit_profile('add')" accept-charset="UTF-8" method="post">
+      <?php
+if(isset($_REQUEST['msg']))
+{
+$msg=$_REQUEST['msg'];
+if($msg=="Updated")
+{
+echo '<div class="succ-msg">Your Profile has been updated Successfully.</div>';
+}
+else if($msg=="Error")
+{
+echo '<div class="err-msg">Server Error</div>';		
+}
+}
+else
+$msg="";
+?>
+      <div class="container">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <?php include("side_menu.php") ?>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9">
+          <h3 align="center">Отредактируйте свой аккаунт
+          </h3>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Имя </span>
+            <input type="text" value="<?php echo $query['name']; ?>" required="required" class="user-login__input user-login__input" id="name" >
+			<div class="err" id="name_err"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Телефон
+            </span>
+            <input type="text" value="<?php echo $query['phone_no']; ?>" class="user-login__input user-login__input" id="phone_no" name="phone_no">			
+            <div class="err" style="color:#e00000" id="pno_err">
+			  <div class="err" id="pho_no_err"></div>
+            </div> 
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Город
+            </span>
+            <input type="text" value="<?php echo $query['city']; ?>" required="required" class="user-login__input user-login__input" id="city">
+				<div class="err" id="city_err"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Адрес
+            </span>
+            <input type="text" value="<?php echo $query['address']; ?>" required="required" class="user-login__input user-login__input" id="address">
+			<div class="err" id="address_err"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Индекс
+            </span>
+            <input type="text" value="<?php echo $query['pin_code']; ?>" required="required" class="user-login__input user-login__input" id="pin_code">
+			<div class="err" id="pin_code_err"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <span class="title">Пол
+            </span>
+            <select id="gender" name="gender" class="user-login__input user-login__input" required="required">
+              <option value="">Ничего из перечисленного
+              </option>
+              <option value="1" 
+                      <?php { if($query['gender']=="1") echo "selected='selected'"; }?>>Мужской
+              </option>
+            <option value="2" 
+                    <?php { if($query['gender']=="2") echo "selected='selected'"; }?>>Женский
+            </option>
+          </select>
+		  <div class="err" id="select_err"></div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <input type="submit" class="user-login__action" value="Update" >
+      </div>
+      </div>
+    </div>
+  </form>
+<div class="min-space">
+</div>
+</section>
+</html>
+<?php } else { header('Location:sign_in.php'); }?>

@@ -1,0 +1,13 @@
+easy installation
+
+1- import sql/handyman.sql
+
+2- edit connection.php 
+
+Admin panel: http://site.com/admincp
+
+Username: admin
+Password: admin
+
+done!
+
