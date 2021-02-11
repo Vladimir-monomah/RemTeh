@@ -20,8 +20,8 @@
     $res1=mysqli_query($con, "select * from sv_services");
     while($row1=mysqli_fetch_array($res1))
     {
-                    $services_name=mysqlii_real_escape_string($con,$row1['services_name']);    
-                    $service_img=mysqlii_real_escape_string($con,$row1['service_img']);
+                    $services_name=mysqli_real_escape_string($con,$row1['services_name']);    
+                    $service_img=mysqli_real_escape_string($con,$row1['service_img']);
             ?>
             <ul class="ser-img">
         <li class="col-md-3 col-sm-3 col-lg-3 home_icon" ><img src="../admincp/admin-logo/<?php echo $service_img;?>">
