@@ -34,7 +34,7 @@ $page = 'city';
       <div id="page-wrapper" >
         <div class="header"> 
           <h1 class="page-header">
-            City Details
+            Города
           </h1>
           <ol class="breadcrumb">
             <li>

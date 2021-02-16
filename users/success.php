@@ -5,7 +5,7 @@ include ('../connection.php');
 ?>
 <section class="teaser bg-top ">
  <div class="min-space"></div><div class="min-space"></div><div class="min-space"></div>
- <h3 class="sub-title">Payment Success</h3>
+ <h3 class="sub-title">Успешный платеж</h3>
 <div class="min-space"></div>
 <div class="min-space"></div>
 </section>

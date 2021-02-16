@@ -19,34 +19,22 @@ if(isset($_REQUEST['postal_code']))
 $postal_code=$_REQUEST['postal_code'];
 }
 else{$postal_code="";}
+
+$res=mysqli_fetch_array(mysqli_query($con, "select * from sv_admin_login"));
+$site_name=mysqli_real_escape_string($con,$res['site_name']);
+$favicon=mysqli_real_escape_string($con,$res['favicon']);
+$currency_code=mysqli_real_escape_string($con,$res['currency_mode']);
 ?>
-<body class="splash-index">
-  <?php include("../header.php") ?>
-  <section class="teaser main-teaser bg-top">
-    <div class="min-space"> </div>
-    <div class="min-space"></div>
-    <div class="min-space"> </div>
-		<h1 class="sub-title">Информационная панель</h1>
-    <div class="min-space"></div>
-    <div class="min-space"></div>
-  </section>
-  <style type="text/css">
-    body{
-      overflow-x:hidden;
-    }
-  </style>
+<title><?php echo $site_name;?></title>
+  <link rel="icon" href="admincp/admin-logo/<?php echo $favicon;?>" >
+<body class="splash-index" onload="window.print()">
 <section class="teaser">
     <div class="min-space"></div>
     <div class="container">
-      <div class="col-lg-3 col-md-3 col-sm-3">
-        <?php include("side_menu.php") ?>
-        <div class="min-space">
-        </div>
-      </div>
       <div class="col-lg-9 col-md-9 col-sm-9">
-        <h3>Информация для заказа</h3>
+        <center><h3>Информация для заказа</h3></center>
         <div class="table-responsive">
-          <table class="table">
+          <table border=1>
             <thead>
               <tr>
                 <th>№</th>		
@@ -98,12 +86,10 @@ else{$postal_code="";}
             <?php } ?>	
           </table>
         </div>
-        <button type="button" onclick="window.open('<?php echo $site_url; ?>/users/dashboard-print.php?msg=Inserted');">Печать акта</button>
       </div>
     </div>
     <div class="min-space">
     </div>
   </section>
-  <?php include("../footer.php") ?>
   </html>
 <?php } else { header('Location:sign_in.php'); }?>

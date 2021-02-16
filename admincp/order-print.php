@@ -5,55 +5,32 @@ if(!isset($_SESSION['user_nam']))
 else
 {		
 	$res=mysqli_fetch_array(mysqli_query($con, "select * from sv_admin_login"));
-	$site_url=mysqli_real_escape_string($con,$res['site_url']);
-
+	$currency_code=mysqli_real_escape_string($con,$res['currency_mode']);
+	
 	$user_name=mysqli_real_escape_string($con, $_SESSION['user_nam']);			
 	$res=mysqli_fetch_array(mysqli_query($con, "select * from sv_admin_login where user_name='$user_name'"));
-	$uname=mysqli_real_escape_string($con, $res['user_name']);	
+	$uname=mysqli_real_escape_string($con, $res['user_name']);
 }	
 $page = 'order';
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<body>
+<body onload="window.print()">
     <div id="wrapper">
-        <?php include("top_menu.php") ?>
-        <!--/. NAV TOP  -->
-        <?php include("side_menu.php") ?>
-        <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
-		  <div class="header"> 
-                        <h1 class="page-header">
-						Информация для заказа
-                        </h1>
-						<ol class="breadcrumb">
-					  <li><a href="dashboard.php">Главная</a></li>
-					  <li><a href="#">Заказ</a></li>
-					</ol>		
-		</div>
             <div id="page-inner">
-<?php
-if(isset($_REQUEST['msg']))
-	$msg=$_REQUEST['msg'];
-else
-	$msg="";
-?>
-<div class="err" style="color:red" id="err_id"><?php echo $msg;?></div>	
-		
-            <div id="page-inner"> 
-               
+              
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
-					<div align="right"><button onclick="window.open('<?php echo $site_url; ?>/admincp/order-print.php');">Печать</button></div>
                     <div class="panel panel-default">
-						<div class="panel-heading">
-                             Orders
+                        <div class="panel-heading">
+							<center><h3>Заказы</h3></center>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example" border="1">
                                     <thead>
                                         <tr>
                                            <th>№</th>										   
@@ -119,7 +96,6 @@ else
             </div>
                 <!-- /. ROW  -->
                    </div>
-				   				<?php include("footer.php") ?>
 
     </div>
              <!-- /. PAGE INNER  -->

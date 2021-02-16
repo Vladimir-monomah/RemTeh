@@ -69,7 +69,7 @@ if(isset($_REQUEST['msg']))
 		}
 		else if($msg=="Updated")
 			{
-		      echo '<div class="succ-msg">Updated Successfully</div>';		
+		      echo '<div class="succ-msg">Успешно обновлено</div>';		
 			}
 }
 else
@@ -178,59 +178,8 @@ else
 								<select id="cmode" name="cmode" class="form-control">
 									<option value="">выбрать валюту</option>
 									<option value="USD" <?php { if($cmode=="USD") echo "selected='selected'"; }?>>USD</option>
-									<option value="CZK" <?php { if($cmode=="CZK") echo "selected='selected'"; }?>>CZK</option>
-									<option value="DKK" <?php { if($cmode=="DKK") echo "selected='selected'"; }?>>DKK</option>
-									<option value="HKD" <?php { if($cmode=="HKD") echo "selected='selected'"; }?>>HKD</option>
-									<option value="HUF" <?php { if($cmode=="HUF") echo "selected='selected'"; }?>>HUF</option>
-									<option value="ILS" <?php { if($cmode=="ILS") echo "selected='selected'"; }?>>ILS</option>
-									<option value="JPY" <?php { if($cmode=="JPY") echo "selected='selected'"; }?>>JPY</option>
-									<option value="MXN" <?php { if($cmode=="MXN") echo "selected='selected'"; }?>>MXN</option>
-									<option value="NZD" <?php { if($cmode=="NZD") echo "selected='selected'"; }?>>NZD </option>
-									<option value="NOK" <?php { if($cmode=="NOK") echo "selected='selected'"; }?>>NOK</option>
-									<option value="PHP" <?php { if($cmode=="PHP") echo "selected='selected'"; }?>>PHP</option>
-									<option value="PLN" <?php { if($cmode=="PLN") echo "selected='selected'"; }?>>PLN</option>
-									<option value="SGD" <?php { if($cmode=="SGD") echo "selected='selected'"; }?>>SGD</option>
-									<option value="SEK" <?php { if($cmode=="SEK") echo "selected='selected'"; }?>>SEK</option>
-									<option value="CHF" <?php { if($cmode=="CHF") echo "selected='selected'"; }?>>CHF</option>																	
-									<option value="THB " <?php { if($cmode=="THB") echo "selected='selected'"; }?>>THB</option>
-
-									<option value="AUD" <?php { if($cmode=="AUD") echo "selected='selected'"; }?>>AUD</option>
-									<option value="CAD" <?php { if($cmode=="CAD") echo "selected='selected'"; }?>>CAD</option>
 									<option value="EUR" <?php { if($cmode=="EUR") echo "selected='selected'"; }?>>EUR</option>
-									<option value="GBP" <?php { if($cmode=="GBP") echo "selected='selected'"; }?>>GBP</option>
-									
-									<option value="BRL" <?php { if($cmode=="BRL") echo "selected='selected'"; }?>>BRL </option>
-									<option value="MYR" <?php { if($cmode=="MYR") echo "selected='selected'"; }?>>MYR</option>
-									<option value="NOK" <?php { if($cmode=="NOK") echo "selected='selected'"; }?>>NOK</option>
-									<option value="TWD" <?php { if($cmode=="TWD") echo "selected='selected'"; }?>>TWD</option>
-									<option value="TRY" <?php { if($cmode=="TRY") echo "selected='selected'"; }?>>TRY</option>
-		  
-										
-									<option value="DZD" <?php { if($cmode=="DZD") echo "selected='selected'"; }?>>DZD </option>
-									<option value="AZN" <?php { if($cmode=="AZN") echo "selected='selected'"; }?>>AZN</option>
-									<option value="BHD" <?php { if($cmode=="BHD") echo "selected='selected'"; }?>>BHD</option>
-									<option value="BYR" <?php { if($cmode=="BYR") echo "selected='selected'"; }?>>BYR</option>
-									<option value="BAM" <?php { if($cmode=="BAM") echo "selected='selected'"; }?>>BAM</option>
-									<option value="BWP" <?php { if($cmode=="BWP") echo "selected='selected'"; }?>>BWP</option>
-									<option value="BND" <?php { if($cmode=="BND") echo "selected='selected'"; }?>>BND </option>
-									<option value="BGN" <?php { if($cmode=="BGN") echo "selected='selected'"; }?>>BGN</option>
-									<option value="KYD" <?php { if($cmode=="KYD") echo "selected='selected'"; }?>>KYD</option>
-									<option value="COP" <?php { if($cmode=="COP") echo "selected='selected'"; }?>>COP</option>
-									<option value="XOF" <?php { if($cmode=="XOF") echo "selected='selected'"; }?>>XOF</option>
-									<option value="XAF" <?php { if($cmode=="XAF") echo "selected='selected'"; }?>>XAF</option>
-									
-									<option value="CDF" <?php { if($cmode=="CDF") echo "selected='selected'"; }?>>CDF </option>
-									<option value="HRK" <?php { if($cmode=="HRK") echo "selected='selected'"; }?>>HRK</option>
-									<option value="CYP" <?php { if($cmode=="CYP") echo "selected='selected'"; }?>>CYP</option>
-									<option value="CZK" <?php { if($cmode=="CZK") echo "selected='selected'"; }?>>CZK</option>
-									<option value="DKK" <?php { if($cmode=="DKK") echo "selected='selected'"; }?>>DKK</option>
-									<option value="DJF" <?php { if($cmode=="DJF") echo "selected='selected'"; }?>>DJF</option>
-									<option value="EGP" <?php { if($cmode=="EGP") echo "selected='selected'"; }?>>EGP </option>
-									<option value="ERN" <?php { if($cmode=="ERN") echo "selected='selected'"; }?>>ERN</option>
-									<option value="INR" <?php { if($cmode=="INR") echo "selected='selected'"; }?>>INR</option>
-									<option value="IDR" <?php { if($cmode=="IDR") echo "selected='selected'"; }?>>IDR</option>
-									<option value="IRR" <?php { if($cmode=="IRR") echo "selected='selected'"; }?>>IRR</option>
-									<option value="RSD" <?php { if($cmode=="RSD") echo "selected='selected'"; }?>>RSD</option>
+									<option value="RUB" <?php { if($cmode=="RUB") echo "selected='selected'"; }?>>РУБ</option>
 								</select>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4">
@@ -238,7 +187,7 @@ else
 								<select id="smode" name="smode" class="form-control">
 									<option value="">Выбрать</option>
 									<option value="test" <?php { if($smode=="test") echo "selected='selected'"; }?>>Тестовый</option>
-									<option value="live" <?php { if($smode=="live") echo "selected='selected'"; }?>>Рельный</option>
+									<option value="live" <?php { if($smode=="live") echo "selected='selected'"; }?>>Реальный</option>
 								</select>
 						</div>
 				</div>

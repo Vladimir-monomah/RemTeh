@@ -38,11 +38,11 @@ echo $res['site_url'];
     <div class="footer-content col-lg-3 col-md-3 col-sm-3 col-sm-4 col-lg-4">
       <h5 class="footer-content__title">Услуги</h5>
       <ul class="footer-content__list">
-        <li><a href="#">Software</a></li>
-        <li><a href="#">Hardware and peripherals</a></li>
-        <li><a href="#">Repair of TVs</a></li>
-        <li><a href="#">Cell phones</a></li>
-        <li><a href="#">Pocket computers</a></li>
+        <li><a href="#">Программное обеспечение</a></li>
+        <li><a href="#">Оборудование и периферия</a></li>
+        <li><a href="#">Ремонт телевизоров</a></li>
+        <li><a href="#">Сотовые телефоны</a></li>
+        <li><a href="#">Карманные компьютеры</a></li>
 
       </ul>
     </div>

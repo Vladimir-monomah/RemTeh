@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RemTeh Service
+    <title>K-Systems
     </title>
     <!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -38,8 +38,8 @@
         </h1>
       </div>
       <form action="javascript:login();" method="post" class="text-center">
-        <input class="form-control" type="user" name="uname" id="uname" placeholder="Username" data-style="mb:7">
-        <input class="form-control" style="margin-top:10px;" type="password" name="pwd" id="pwd" placeholder="Password" data-style="mb:7">
+        <input class="form-control" type="user" name="uname" id="uname" placeholder="Логин" data-style="mb:7">
+        <input class="form-control" style="margin-top:10px;" type="password" name="pwd" id="pwd" placeholder="Пароль" data-style="mb:7">
       <br>
         <a href="forgot.php">Забыли пароль
         </a>

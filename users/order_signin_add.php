@@ -1,4 +1,5 @@
 <?php
+
 include('../connection.php');
 session_start();
 $city_name=mysqli_real_escape_string($con, $_REQUEST['city_name']);
@@ -29,12 +30,26 @@ $res=mysqli_query($con, "select * from sv_user_profile where phone_no='$phone_no
 $numrow=mysqli_num_rows($res);
 if($numrow=="")
 {
-mysqli_query($con, "insert into sv_user_profile(name,password,phone_no,email_id,date)values('$name','$pass','$phone_no','$email_id','$date')");
-mysqli_query($con, "insert into sv_user_order(name,address,services,sub_services,date,order_time,requirement,phone_no,city_name,price,payment_mode,payment_status)values('$name','$address','$services','$sub_services','$date','$time','$req','$phone_no','$city_name','$price','$payment_mode','pending')");
-$query1=mysqli_fetch_array(mysqli_query($con, "select * from sv_admin_login"));
+mysqli_query($con, "insert into sv_user_profile(name,password,phone_no,email_id,date,city,address)".
+					"values('$name','$pass','$phone_no','$email_id','$date','$city_name', '$address')");
+}
+
+mysqli_query($con,
+ "insert into sv_user_order(name,address,services,sub_services,date,order_time,".
+ "requirement,phone_no,city_name,price,payment_mode,payment_status, order_phone_no)".
+ "values('$name','$address','$services','$sub_services','$date','$time',".
+ "'$req','$phone_no','$city_name','$price','$payment_mode','pending','$phone_no')");
+ $error = mysqli_error($con);
+ if($error <> '')
+ {
+   die($error."1");
+ }
+ 
+ $query1=mysqli_fetch_array(mysqli_query($con, "select * from sv_admin_login"));
 $logo = mysqli_real_escape_string($con, $query1['logo']);
 $imgSrc=$query1['site_url']."/admincp/admin-logo/$logo";
 $site_name = mysqli_real_escape_string($con, $query1['site_name']);
+
 /*----------------------User email start-------------------*/
 $subject= 'Your Account & Order has been created Successfully'; 
 $phone_no = mysqli_real_escape_string($con, $phone_no);
@@ -162,14 +177,8 @@ $last_order_id=$order['order_id'];
 		{
 			echo "paypal";
 		}
-		
-//echo "Inserted";
-?>
-<?php								
-}
-else
-{
-echo "Exist";
-}
-//}
+		else
+		{
+		echo "Inserted";
+		}
 ?>

@@ -92,7 +92,7 @@ while($row3=mysqli_fetch_array($res3))
         <div class="col-lg-6 col-md-6 col-sm-6">
           <span class="title">Выбор даты
           </span>
-          <input type="text" id="datepicker" name="datepicker" required="required" placeholder="Select date" class="user-login__input user-login__input">
+          <input type="text" id="datepicker" name="datepicker" required="required" placeholder="Выбор даты" class="user-login__input user-login__input">
 		  	 <div class="err" id="date_err"></div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">

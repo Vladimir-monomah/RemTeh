@@ -21,7 +21,11 @@ $creat_time=mysqli_real_escape_string($con, date("Y-m-d"));
 $type=mysqli_real_escape_string($con, $_REQUEST['action']);
 if($type=='add')
 {
-mysqli_query($con,"insert into  sv_service_provider(email,confirm_email,first_name,last_name,mob_no,post_code,exp,paid_work,gender,dob,nationality,address,suburb,abt_us,phone_no,creat_time)values('$email','$cemail','$fname','$lname','$mob_no','$post_code','$exp','$paid_work','$gender','$dob1','$nation','$address','$suburb','$abt','$phone_no','$creat_time')");
+mysqli_query($con,"insert into  sv_service_provider("
+."email,confirm_email,first_name,last_name,mob_no,post_code,"
+."exp,paid_work,gender,dob,nationality,address,suburb,abt_us,phone_no,creat_time)"
+."values('$email','$cemail','$fname','$lname','$mob_no','$post_code',"
+."'$exp','$paid_work','$gender','$dob1','$nation','$address','$suburb','$abt','$phone_no','$creat_time')");
 $query1=mysqli_fetch_array(mysqli_query($con,"select * from sv_admin_login"));
 $site_url=mysqli_real_escape_string($con, $query1['site_url']);
 $logo=mysqli_real_escape_string($con, $query1['logo']);

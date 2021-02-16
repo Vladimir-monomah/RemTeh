@@ -12,7 +12,7 @@ $page_name=$query['page_name'];
 ?>
     <div class="min-space">
     </div>
-    <h1 class="sub-title">Help
+    <h1 class="sub-title">Помощь
     </h1>
     <div class="min-space">
     </div>

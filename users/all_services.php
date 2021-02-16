@@ -7,7 +7,7 @@
 <div class="min-space"></div>
 <div class="min-space"></div>
 <div class="min-space"></div>
-<h1 class="sub-title">All Services</h1>
+<h1 class="sub-title">Все услуги</h1>
 <div class="min-space"></div>
 <div class="min-space"></div>
 </section>
