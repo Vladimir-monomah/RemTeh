@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 16 2021 г., 09:08
+-- Время создания: Фев 16 2021 г., 21:06
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -48,7 +48,7 @@ CREATE TABLE `sv_admin_login` (
 --
 
 INSERT INTO `sv_admin_login` (`admin_id`, `user_name`, `password`, `email_id`, `site_name`, `logo`, `favicon`, `site_desc`, `keyword`, `site_url`, `paypal_id`, `currency_mode`, `paypal_site_mode`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'kazakow_danil@mail.ru', 'k-systems', '81340x8100a21980bd259d11e9a8783f18d622.jpg', '8765iconfinder-technologymachineelectronicdevice23-4026437_113360.ico', 'Technique repair tutorials', 'HTML,CSS,XML,JavaScript', 'http://k-systems', 'info@codexworld.com', 'RUB', 'test');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'kazakow_danil@mail.ru', 'k-systems', '460x8100a21980bd259d11e9a8783f18d622.jpg', '8765iconfinder-technologymachineelectronicdevice23-4026437_113360.ico', 'Technique repair tutorials', 'HTML,CSS,XML,JavaScript', 'http://k-systems', 'info@codexworld.com', 'RUB', 'test');
 
 -- --------------------------------------------------------
 
