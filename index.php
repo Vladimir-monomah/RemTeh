@@ -34,7 +34,7 @@
 
                 <div class="col-md-4  col-sm-4">				
                     <select required="required" id="city" name="city" class="service"> 
-                        <option value="">Select City</option>
+                        <option value="">Выберите город</option>
                             <?php        
                                 $res=mysqli_query($con,"select * from sv_city order by city_id");
                                 while($row=mysqli_fetch_array($res))
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-4  col-sm-4">				
                     <select required="required" id="services" name="services" class="service"> 
-                        <option value="">Select services</option>
+                        <option value="">Выберите услугу</option>
                         <?php        
                             $res=mysqli_query($con,"select * from sv_services order by services_id");
                             while($row=mysqli_fetch_array($res))
