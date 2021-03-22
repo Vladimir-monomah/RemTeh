@@ -1,3 +1,7 @@
+<? 
+@session_start(); 
+?>
+
 <html>
  <?php
  //http://localhost/athi/handyman/  
@@ -15,6 +19,7 @@
  <title><?php echo $site_name;?></title>
   <link rel="icon" href="admincp/admin-logo/<?php echo $favicon;?>" >
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="<?php echo $site_desc; ?>">
     <meta name="keywords" content="<?php echo $keyword; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,13 +70,11 @@
                             <li><a class="nav__link" href="<?php echo $site_url; ?>/users/pricing.php">Прайс-лист</a></li>
                             <li><span class="link_to_another_page"><a class="nav__link" href="<?php echo $site_url; ?>/users/help.php">Помощь</a></span></li>
                             <li><span class="link_to_another_page"><a class="nav__link" href="<?php echo $site_url; ?>/users/contact.php">Контакты</a></span></li>
-                            <?php 
-                                @session_start();
+                            <?php
                                 if(!isset($_SESSION['phone_no'])) { ?>
                                 <li><a class="nav__link sign-in" href="<?php echo $site_url; ?>/users/sign_in.php">Войти в систему</a></li><?php } ?>
                              <li><span class="link_to_another_page"><a class="nav__link nav__link--prominent" href="<?php echo $site_url; ?>/users/order.php">Разместите свой заказ</a></span></li>
-                                <?php 
-                                    @session_start();
+                                <?php
                                     if(isset($_SESSION['phone_no']))
                                     {    
                                         $phone_no=mysqli_real_escape_string($con,$_SESSION['phone_no']);            

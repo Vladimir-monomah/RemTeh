@@ -1,3 +1,7 @@
+<? 
+@session_start(); 
+?>
+
 <body class="splash-index">
   <?php include("../header.php") ?>
   <section class="teaser main-teaser bg-top">

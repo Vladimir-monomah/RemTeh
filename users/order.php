@@ -1,5 +1,7 @@
 <?php $page = 'post your order'; ?>
-<?php include("../connection.php");
+<?php
+@session_start();
+include("../connection.php");
 include("../header.php"); 
 if (isset($_POST['city'], $_POST['services']))
 {
@@ -9,9 +11,8 @@ $services=mysqli_real_escape_string($con, $_POST['services']);
 else{$city="";$services="";}
 ?>
 <?php 
-@session_start();
 if(!isset($_SESSION['phone_no']))
-{	
+{
 ?>
 <body class="splash-index">
   <style type="text/css">
@@ -161,30 +162,16 @@ while($row1=mysqli_fetch_array($res1))
         </span>
         <select id="time" class="user-login__input user-login__input" required>
           <option value="">None  </option>
-          <option value="12:00 AM">12:00 AM </option>
-          <option value="1:00 AM">01:00 AM </option>
-          <option value="2:00 AM">02:00 AM  </option>
-          <option value="3:00 AM">03:00 AM  </option>
-          <option value="4:00 AM">04:00 AM  </option>
-          <option value="5:00 AM">05:00 AM  </option>
-          <option value="6:00 AM">06:00 AM  </option>
-          <option value="7:00 AM">07:00 AM  </option>
-          <option value="8:00 AM">08:00 AM   </option>
-          <option value="9:00 AM">09:00 AM  </option>
-          <option value="10:00 AM">10:00 AM </option>
-          <option value="11:00 AM">11:00 AM  </option>
-          <option value="12:00 PM">12:00 PM   </option>
-          <option value="1:00 PM">01:00 PM  </option>
-          <option value="2:00 PM">02:00 PM  </option>
-          <option value="3:00 PM">03:00 PM   </option>
-          <option value="4:00 PM">04:00 PM   </option>
-          <option value="5:00 PM">05:00 PM  </option>
-          <option value="6:00 PM">06:00 PM </option>
-          <option value="7:00 PM">07:00 PM  </option>
-          <option value="8:00 PM">08:00 PM  </option>
-          <option value="9:00 PM">09:00 PM  </option>
-          <option value="10:00 PM">10:00 PM   </option>
-          <option value="11:00 PM">11:00 PM  </option>
+          <option value="8:00 AM">08:00   </option>
+          <option value="9:00 AM">09:00  </option>
+          <option value="10:00 AM">10:00 </option>
+          <option value="11:00 AM">11:00  </option>
+          <option value="12:00 PM">12:00   </option>
+          <option value="1:00 PM">13:00  </option>
+          <option value="2:00 PM">14:00  </option>
+          <option value="3:00 PM">15:00   </option>
+          <option value="4:00 PM">16:00   </option>
+          <option value="5:00 PM">17:00  </option>
         </select>
 		 <div class="err" id="time_err"></div>
       </div>
@@ -260,6 +247,7 @@ while($row1=mysqli_fetch_array($res1))
 <?php } else{ ?>
 <?php 
 @session_start();
+$order_times = [];
 if(isset($_SESSION['phone_no']))
 {		
 $phone_no=mysqli_real_escape_string($con, $_SESSION['phone_no']);
@@ -267,7 +255,16 @@ $query=mysqli_fetch_array(mysqli_query($con, "select * from sv_user_profile wher
 $address=mysqli_real_escape_string($con, $query['address']);		
 $name=mysqli_real_escape_string($con, $query['name']);
 $pno=mysqli_real_escape_string($con, $query['phone_no']);
+
+  $order_times_fetch=mysqli_query($con, "select order_time from sv_user_order where phone_no='$phone_no'");
+  $i = 0;
+  while($row=mysqli_fetch_array($order_times_fetch))
+  {
+    $order_times[$i] = $row[0];
+    $i++;
+  }
 }	
+
 ?>
 <body class="splash-index">
   <section class="teaser main-teaser bg-top" >
@@ -412,30 +409,18 @@ while($row1=mysqli_fetch_array($res1))
             </span>
             <select id="time" required="required" class="user-login__input user-login__input">
               <option value="">Нету в списке </option>
-              <option value="12:00 AM">12:00 AM </option>
-              <option value="1:00 AM">01:00 AM </option>
-              <option value="2:00 AM">02:00 AM  </option>
-              <option value="3:00 AM">03:00 AM </option>
-              <option value="4:00 AM">04:00 AM </option>
-              <option value="5:00 AM">05:00 AM  </option>
-              <option value="6:00 AM">06:00 AM  </option>
-              <option value="7:00 AM">07:00 AM  </option>     
-			  <option value="8:00 AM">08:00 AM </option>
-              <option value="9:00 AM">09:00 AM   </option>
-              <option value="10:00 AM">10:00 AM  </option>
-              <option value="11:00 AM">11:00 AM   </option>
-              <option value="12:00 PM">12:00 PM  </option>
-              <option value="1:00 PM">01:00 PM   </option>
-              <option value="2:00 PM">02:00 PM  </option>
-              <option value="3:00 PM">03:00 PM   </option>
-              <option value="4:00 PM">04:00 PM</option>
-              <option value="5:00 PM">05:00 PM  </option>
-              <option value="6:00 PM">06:00 PM  </option>
-              <option value="7:00 PM">07:00 PM </option>
-              <option value="8:00 PM">08:00 PM   </option>
-              <option value="9:00 PM">09:00 PM   </option>
-              <option value="10:00 PM">10:00 PM  </option>
-              <option value="11:00 PM">11:00 PM</option>              
+              <? 
+              if(!in_array('8:00 AM', $order_times)){echo '<option value="8:00 AM">08:00   </option>';}
+              if(!in_array('9:00 AM', $order_times)){echo '<option value="9:00 AM">09:00  </option>';}
+              if(!in_array('10:00 AM', $order_times)){echo '<option value="10:00 AM">10:00 </option>';}
+              if(!in_array('11:00 AM', $order_times)){echo '<option value="11:00 AM">11:00  </option>';}
+              if(!in_array('12:00 PM', $order_times)){echo '<option value="12:00 PM">12:00   </option>';}
+              if(!in_array('1:00 PM', $order_times)){echo '<option value="1:00 PM">13:00  </option>';}
+              if(!in_array('2:00 PM', $order_times)){echo '<option value="2:00 PM">14:00  </option>';}
+              if(!in_array('3:00 PM', $order_times)){echo '<option value="3:00 PM">15:00   </option>';}
+              if(!in_array('4:00 PM', $order_times)){echo '<option value="4:00 PM">16:00   </option>';}
+              if(!in_array('5:00 PM', $order_times)){echo '<option value="5:00 PM">17:00  </option>';}        
+              ?>
             </select> 
 			<div class="err" id="time_err"></div>
           </div>
@@ -487,7 +472,7 @@ while($row1=mysqli_fetch_array($res1))
               </div> 
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-md-6 col-sm-6">
-              <input type="submit" value="Book Now" class="user-login__action" >
+              <input type="submit" value="Разместить заказ" class="user-login__action" >
             </div>
           </div>
         </div>
